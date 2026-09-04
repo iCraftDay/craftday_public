@@ -1,0 +1,268 @@
+:root{
+  --rot: rgb(239, 29, 29);
+  --Hintergrund: rgb(19, 152, 219);
+  --white: rgb(255,255,255);
+  --complementary: rgb(195,34,44);
+}
+
+/* Dark-Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rot: rgb(239, 29, 29);
+    --Hintergrund: rgb(14, 113, 162);
+    --white: rgb(230,230,230);
+    --complementary: rgb(195,34,44);
+  }
+}
+
+* {
+  scrollbar-width: pink;  /* not for Firefox ;_; */
+  /*cursor: url('Cursor.png'), not-allowed;*/
+  overflow-x: hidden;
+  transition-duration: 1s;
+}
+
+
+body {
+  font-family: 'typeface',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  /*text-align: center;*/
+  background: var(--Hintergrund);
+}
+
+
+.logo {
+  width: auto;
+  height: 100px;
+}
+
+/* Header und Footer */
+#header {
+  min-height: 100px; /* Setze hier die ungefähre Höhe der Navbar */
+}
+
+#footer {
+  min-height: 76px; /* Falls du ebenfalls den Footer im gleichen Stil setzen möchtest */
+}
+
+.placeholder_background {
+  background-color: var(--white); /* Optional, damit es nicht leer aussieht */
+}
+
+/* Der Header. */
+.uk-navbar-container{
+  background-color: var(--white); /* funktioniert irgendwie nicht */
+}
+
+.uk-navbar-nav>li>a {
+  text-transform: none;
+}
+
+/* Bildgalerie (Slider) */
+.hero_slider_container.uk-slideshow-items {
+
+  max-height: calc( 100vh - 345px); /* Sieht am besten aus bei mir :) */
+  --uk-position-y: 66%;
+}
+
+.hero_slider_container.uk-slideshow-items img {
+
+  object-position: center 68% ;
+}
+
+
+/* Der Willkommen-Sektor */
+
+.uk-section-white:not(.uk-preserve-color) .uk-heading-large,
+.uk-section-white:not(.uk-preserve-color) .uk-heading-medium,
+.uk-section-white:not(.uk-preserve-color) .uk-h4,
+.uk-section-white:not(.uk-preserve-color) .uk-h1{
+    color: var(--white);
+}
+
+/* Schamlose Kopiererei. Weiss nicht, woher diese ganzen Definitionen kommen. */
+h1:not(.uk-text-small),
+.uk-h1:not(.uk-text-small),
+h2, .uk-h2,
+.uk-heading-medium,
+.uk-heading-large {
+    font-weight: 700;
+}
+
+.uk-heading-medium.uk-margin-top,
+.uk-h1.uk-margin-top {
+  overflow: visible; 
+}
+
+
+/* Kartens */
+.uk-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--rot);
+  text-align: center;
+}
+
+/* Comments Überschrift */
+.es-soll-weiss-sein{
+  color: var(--white) !important
+}
+
+/* Comments */
+.uk-comment {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--rot);
+}
+
+.uk-comment-meta.uk-subnav {
+  display: block; /* Das hilft, dass die Sterne nicht rechts vom Rang stehen */
+}
+
+
+
+/* Flag counter */
+#flag-counter-img {
+  width: 316px;
+  height: 83px;      /* Setze hier die gewünschte Höhe */
+}
+
+/* Cringe Seite (Masonry) */
+
+
+/* .smiley {
+  font-size: 24px;
+  color: "#2020131";
+  font-family: Open Sans, sans-serif;
+  text-align: center;
+  background-image: url('Snowy.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+/*
+#WeisseSektion {
+  background-color: #ffffff;
+  z-index: 5;
+  position: relative;
+}
+
+#BildHintergrund {
+  background-image: url('Snowy.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  max-width:100%;
+  max-height:auto;/
+}
+
+#Smiley {
+  background-color: #ffffff2f;
+}
+
+
+*/
+
+/* EFFEKTE */
+
+.rainbow_background {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  color: transparent;
+  animation: rainbow 3s ease-in-out infinite;
+  width:100%;
+}
+
+.rainbow_effect {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400%;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 3s ease-in-out infinite;
+  text-decoration: underline;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; /* Für den 3D-Effekt */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* Dreht die Karte bei Hover */
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Versteckt die Rückseite, wenn sie nicht sichtbar ist */
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg); /* Rückseite wird um 180 Grad gedreht */
+}
+
+.fancy-button {
+  display: inline-block;
+  background: rgb(239, 29, 29);
+  color: white; 
+  font-size: 36px;
+  text-decoration: none;
+  padding: 7px 40px;
+  /*border: none; */
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s ease;
+}
+
+.fancy-button:hover {
+  background: rgb(180, 4, 37);
+  box-shadow: 0 10px 17px rgba(0, 0, 0, 0.25);
+  transform: translateY(80px) scaleY(4) scaleX(3);
+}
+
+
+/* Nur ein Test */
+
+
+
